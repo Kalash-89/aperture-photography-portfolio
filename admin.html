@@ -66,7 +66,7 @@
     async function loadBookings(){
       const container = document.getElementById('bookings-container');
       try {
-        const response = await fetch('http://localhost:5050/api/bookings');
+        const response = await fetch('https://aperture-photography-portfolio.onrender.com/api/bookings');
         const bookings = await response.json();
 
         if (bookings.length === 0) {

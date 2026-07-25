@@ -81,13 +81,24 @@ body {
 .hero-image {
   height: 85vh;
   overflow: hidden;
+  position: relative;
 }
 
-.hero-image img {
+.hero-image .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
 }
+
+.hero-image .slide.active {
+  opacity: 1;
+}
+ 
 
 .hero-center {
   text-align: center;
@@ -453,5 +464,73 @@ textarea {
 
   .form-row {
     grid-template-columns: 1fr;
+  }
+}
+/* Quote Section */
+.quote-section {
+  padding: 100px 60px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.5;
+  color: var(--ivory);
+  margin-bottom: 30px;
+}
+
+.quote-divider {
+  width: 50px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 20px;
+}
+
+.quote-sub {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--grey);
+}
+
+/* Masonry Grid */
+.masonry {
+  padding: 60px 60px 100px;
+}
+
+.masonry-grid {
+  column-count: 3;
+  column-gap: 4px;
+}
+
+.masonry-grid img {
+  width: 100%;
+  display: block;
+  margin-bottom: 4px;
+  break-inside: avoid;
+  cursor: pointer;
+  filter: grayscale(10%);
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.masonry-grid img:hover {
+  filter: grayscale(0%);
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .quote-section {
+    padding: 60px 24px;
+  }
+
+  .masonry {
+    padding: 40px 24px 60px;
+  }
+
+  .masonry-grid {
+    column-count: 2;
   }
 }

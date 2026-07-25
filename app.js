@@ -86,7 +86,7 @@ document.querySelector('.booking-form').addEventListener('submit', async functio
   submitBtn.disabled = true;
 
   try {
-    const response = await fetch('http://localhost:5050/api/bookings', {
+    const response = await fetch('https://aperture-photography-portfolio.onrender.com/api/bookings', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
@@ -107,3 +107,16 @@ document.querySelector('.booking-form').addEventListener('submit', async functio
   submitBtn.textContent = 'Send Request';
   submitBtn.disabled = false;
 });
+// Hero slideshow
+function startSlideshow(container) {
+  const slides = container.querySelectorAll('.slide');
+  let current = 0;
+
+  setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 4000);
+}
+
+document.querySelectorAll('.hero-image').forEach(startSlideshow);
