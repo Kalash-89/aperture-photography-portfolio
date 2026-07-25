@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aperture — Photography Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="announcement-bar">AVAILABLE FOR BOOKINGS — 2026 SEASON</div>
+
+  <nav class="navbar">
+    <ul class="nav-links left">
+      <li><a href="#gallery">Portfolio</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <div class="nav-logo">Aperture</div>
+    <ul class="nav-links right">
+      <li><a href="#contact">Book Now</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-image left">
+      <img src="photo-01.jpg" alt="Portrait photography">
+    </div>
+    <div class="hero-center">
+      <p class="hero-eyebrow">New</p>
+      <h1 class="hero-title">PORTFOLIO</h1>
+      <p class="hero-tagline">2026 Collection</p>
+      <div class="hero-divider"></div>
+<p class="hero-stat">50+ SESSIONS SHOT</p>
+      <a href="#gallery" class="hero-btn">SEE THE WORK</a>
+    </div>
+    <div class="hero-image right">
+      <img src="photo-04.jpg" alt="Candid photography">
+    </div>
+  </header>
+
+  <section class="categories" id="gallery">
+    <h2 class="section-heading">SHOP THE PORTFOLIO</h2>
+    <div class="categories-grid">
+      <div class="category-item">
+        <img src="photo-06.jpg" alt="Portraits">
+        <p class="category-label">PORTRAITS →</p>
+      </div>
+      <div class="category-item">
+        <img src="photo-02.jpg" alt="Candid">
+        <p class="category-label">CANDID →</p>
+      </div>
+      <div class="category-item">
+        <img src="photo-08.jpg" alt="Travel">
+        <p class="category-label">TRAVEL →</p>
+      </div>
+      <div class="category-item">
+        <img src="photo-03.jpg" alt="Aesthetic">
+        <p class="category-label">AESTHETIC →</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio-strip">
+    <div class="strip-item"><img src="photo-07.jpg" alt="Work sample"></div>
+    <div class="strip-item"><img src="photo-05.jpg" alt="Work sample"></div>
+    <div class="strip-item"><img src="photo-09.jpg" alt="Work sample"></div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-collage">
+      <img src="photo-05.jpg" alt="Studio work sample" class="collage-main">
+      <img src="photo-02.jpg" alt="Studio work sample" class="collage-small">
+      <img src="photo-06.jpg" alt="Studio work sample" class="collage-round">
+    </div>
+    <div class="about-content">
+      <h2 class="section-heading">ABOUT THE STUDIO</h2>
+      <p class="about-bio">Welcome to our photography studio, where every frame tells a story. We specialize in capturing genuine moments — portraits, candid shots, and everything in between.</p>
+      <p class="about-bio">Our approach blends technical precision with an eye for natural light and emotion, creating images that feel timeless rather than staged.</p>
+      <a href="#contact" class="about-btn">BOOK A SESSION</a>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="section-label">BOOK A SESSION</p>
+    <h2 class="contact-title">Let's create<br>something together.</h2>
+
+    <form class="booking-form">
+      <p id="form-status" class="form-status"></p>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="session-type">Session Type</label>
+          <select id="session-type" name="session-type" required>
+            <option value="">Select a type</option>
+            <option value="portrait">Portrait</option>
+            <option value="event">Event</option>
+            <option value="wedding">Wedding</option>
+            <option value="product">Product / Commercial</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Preferred Date</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Tell me about your shoot</label>
+        <textarea id="message" name="message" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Request</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <p>© 2026 Aperture Photography</p>
+  </footer>
+<script src="app.js"></script>
+</body>
+</html>
