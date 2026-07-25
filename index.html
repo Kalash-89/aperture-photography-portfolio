@@ -32,11 +32,11 @@
       <h1 class="hero-title">PORTFOLIO</h1>
       <p class="hero-tagline">2026 Collection</p>
       <div class="hero-divider"></div>
-<p class="hero-stat">50+ SESSIONS SHOT</p>
+      <p class="hero-stat">50+ SESSIONS SHOT</p>
       <a href="#gallery" class="hero-btn">SEE THE WORK</a>
     </div>
     <div class="hero-image right">
-      <img src="photo-04.jpg" alt="Candid photography">
+      <img src="photo-03.jpg" alt="Candid photography">
     </div>
   </header>
 
@@ -56,7 +56,7 @@
         <p class="category-label">TRAVEL →</p>
       </div>
       <div class="category-item">
-        <img src="photo-03.jpg" alt="Aesthetic">
+        <img src="photo-06.jpg" alt="Aesthetic">
         <p class="category-label">AESTHETIC →</p>
       </div>
     </div>
@@ -88,25 +88,29 @@
 
     <form class="booking-form">
       <p id="form-status" class="form-status"></p>
+
       <div class="form-row">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name">
+          <span class="error-msg" id="name-error"></span>
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email">
+          <span class="error-msg" id="email-error"></span>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" required>
+          <input type="tel" id="phone" name="phone">
+          <span class="error-msg" id="phone-error"></span>
         </div>
         <div class="form-group">
           <label for="session-type">Session Type</label>
-          <select id="session-type" name="session-type" required>
+          <select id="session-type" name="session-type">
             <option value="">Select a type</option>
             <option value="portrait">Portrait</option>
             <option value="event">Event</option>
@@ -114,12 +118,14 @@
             <option value="product">Product / Commercial</option>
             <option value="other">Other</option>
           </select>
+          <span class="error-msg" id="session-type-error"></span>
         </div>
       </div>
 
       <div class="form-group">
         <label for="date">Preferred Date</label>
-        <input type="date" id="date" name="date" required>
+        <input type="date" id="date" name="date">
+        <span class="error-msg" id="date-error"></span>
       </div>
 
       <div class="form-group">
@@ -134,6 +140,8 @@
   <footer class="footer">
     <p>© 2026 Aperture Photography</p>
   </footer>
-<script src="app.js"></script>
+
+  <script src="app.js"></script>
+
 </body>
 </html>
