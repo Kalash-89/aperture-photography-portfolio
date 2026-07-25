@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Bookings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-wrap {
+      padding: 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .admin-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      text-align: left;
+      padding: 14px 12px;
+      border-bottom: 1px solid rgba(245,240,232,0.15);
+    }
+    th {
+      color: var(--gold);
+      font-weight: 500;
+      letter-spacing: 1px;
+      font-size: 12px;
+    }
+    td {
+      color: var(--ivory);
+    }
+    .empty-state {
+      color: var(--grey);
+      padding: 40px 0;
+    }
+    .loading {
+      color: var(--grey);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo">Aperture — Admin</div>
+    <ul class="nav-links right">
+      <li><a href="index.html">← Back to Site</a></li>
+    </ul>
+  </nav>
+
+  <div class="admin-wrap">
+    <h1 class="admin-title">Bookings</h1>
+    <div id="bookings-container">
+      <p class="loading">Loading bookings...</p>
+    </div>
+  </div>
+
+  <script>
+    async function loadBookings(){
+      const container = document.getElementById('bookings-container');
+      try {
+        const response = await fetch('http://localhost:5050/api/bookings');
+        const bookings = await response.json();
+
+        if (bookings.length === 0) {
+          container.innerHTML = '<p class="empty-state">No bookings yet.</p>';
+          return;
+        }
+
+        let tableHTML = `
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Session Type</th>
+                <th>Date</th>
+                <th>Message</th>
+                <th>Submitted</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
+
+        bookings.forEach(b => {
+          const submittedDate = new Date(b.createdAt).toLocaleDateString();
+          tableHTML += `
+            <tr>
+              <td>${b.name}</td>
+              <td>${b.email}</td>
+              <td>${b.phone}</td>
+              <td>${b.sessionType}</td>
+              <td>${b.date}</td>
+              <td>${b.message || '—'}</td>
+              <td>${submittedDate}</td>
+            </tr>
+          `;
+        });
+
+        tableHTML += '</tbody></table>';
+        container.innerHTML = tableHTML;
+
+      } catch (error) {
+        container.innerHTML = '<p class="empty-state">Failed to load bookings. Is the server running?</p>';
+      }
+    }
+
+    loadBookings();
+  </script>
+
+</body>
+</html>
